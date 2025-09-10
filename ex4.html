@@ -11,7 +11,7 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
-
+   <button id="addButton">Enter</button>
    <ul>
       <li>Notebook<!--<button>Delete</button></li>-->
       <li>Jello</li>
@@ -24,7 +24,33 @@
    <script>
 
       // add code here
+      function addDeleteButton(li){
+         const deleteBtn = document.createElement("button");
+         deleteBtn.textContent = "Delete";
+         deleteBtn.style.marginLeft = "10px";
 
+         deleteBtn.addEventListener("click", function(){
+            li.remove();
+         })
+            li.appendChild(deleteBtn);
+         }
+
+         // adding delete buttons to all existing items 
+         const listItems = document.querySelectorAll("ul li");
+         listItems.forEach(item => {
+            addDeleteButton(item);
+      });
+
+      function addItem(){
+         const itemVal = document.getElementById("inputText").value;
+         const ulElem = document.getElementsByTagName("ul")[0];
+         const liElem = document.createElement("li");
+         liElem.innerText = itemVal;
+         addDeleteButton(liElem);
+         ulElem.appendChild(liElem);
+      }
+
+      document.getElementById("addButton").addEventListener("click", addItem);
    </script>
 
 </body>
