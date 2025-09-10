@@ -27,14 +27,12 @@
         var square=true;
         // add code here
         function changeShape(){
-            var div = document.getElementById("div1");
-            if(div.style.borderRadius === "50%"){
-                // making a square 
-                div.style.borderRadius = "0";
+            let divElem = document.getElementById("div1");
+            if(square){
+                divElem.style.borderRadius = "50%";
             }
             else{
-                // making a circle 
-                div.style.borderRadius = "50%";
+                divElem.style.borderRadius = "0";
             }
         }
         
